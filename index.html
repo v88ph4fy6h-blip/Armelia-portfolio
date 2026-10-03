@@ -8,722 +8,1185 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&family=Parisienne&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --cream: #faf6f0;
-  --cream-dark: #f1e9df;
-  --rose: #d9b7b5;
-  --rose-light: #ead8d5;
-  --brown: #3e302e;
-  --brown-light: #756461;
-  --black: #211b1a;
-  --white: #fffdfb;
-  --line: #ded2c9;
+
+:root{
+    --cream:#FFF8EF;
+    --cream2:#F9EBD8;
+    --pink:#E65F83;
+    --pink-dark:#B9365C;
+    --pink-light:#F6C5CF;
+    --yellow:#F4C95D;
+    --yellow-light:#FFF0B8;
+    --brown:#332422;
+    --muted:#796663;
+    --white:#FFFDFC;
+    --line:#E8CFC8;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-  background: var(--cream);
-  color: var(--brown);
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.7;
+body{
+    background:var(--cream);
+    color:var(--brown);
+    font-family:"DM Sans",sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
 }
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(250,246,240,0.95);
-  border-bottom: 1px solid var(--line);
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* DECORACIÓN */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:var(--pink-light);
+    opacity:.35;
+    top:-100px;
+    right:-80px;
+    z-index:-1;
 }
 
-.logo {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--black);
+body::after{
+    content:"✦";
+    position:fixed;
+    color:var(--pink);
+    font-size:70px;
+    left:20px;
+    bottom:30px;
+    opacity:.18;
+    z-index:-1;
 }
 
-nav div:last-child {
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,248,239,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:16px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-nav a {
-  color: var(--brown);
-  text-decoration: none;
-  font-size: 13px;
+.logo{
+    font-family:"DM Serif Display",serif;
+    font-size:28px;
+    color:var(--pink-dark);
 }
 
-nav a:hover {
-  color: #a67f7c;
+nav .links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
 }
 
-section {
-  padding: 90px 8%;
-  max-width: 1200px;
-  margin: auto;
+nav a{
+    text-decoration:none;
+    color:var(--brown);
+    font-size:12px;
+    font-weight:500;
 }
 
-.hero {
-  min-height: 88vh;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 75px;
-  align-items: center;
+nav a:hover{
+    color:var(--pink-dark);
 }
 
-.photo-box {
-  position: relative;
+/* GENERAL */
+
+section{
+    padding:95px 8%;
+    max-width:1250px;
+    margin:auto;
 }
 
-.photo-box img {
-  width: 280px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 2px;
-  display: block;
-  background: var(--cream-dark);
+.section-tag{
+    display:inline-block;
+    background:var(--yellow-light);
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:18px;
+    transform:rotate(-2deg);
 }
 
-.photo-note {
-  margin-top: 13px;
-  font-family: "Parisienne", cursive;
-  font-size: 22px;
-  color: #a67f7c;
+.section-title{
+    font-family:"DM Serif Display",serif;
+    font-size:clamp(42px,6vw,70px);
+    line-height:1;
+    color:var(--brown);
+    margin-bottom:35px;
 }
 
-.small-label {
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--brown-light);
-  margin-bottom: 15px;
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:grid;
+    grid-template-columns:390px 1fr;
+    align-items:center;
+    gap:75px;
+    position:relative;
 }
 
-h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(55px, 8vw, 95px);
-  line-height: 0.9;
-  color: var(--black);
-  font-weight: 600;
+.hero-photo{
+    position:relative;
+    width:max-content;
 }
 
-h1 span {
-  display: block;
+.photo-frame{
+    width:330px;
+    height:410px;
+    background:var(--pink);
+    padding:12px;
+    transform:rotate(-2deg);
+    box-shadow:18px 18px 0 var(--yellow);
 }
 
-h1 .surname {
-  font-size: 0.42em;
-  letter-spacing: 3px;
-  margin-top: 18px;
+.photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    background:#f2ded9;
 }
 
-.hero-subtitle {
-  font-size: 18px;
-  margin-top: 28px;
-  max-width: 650px;
+.photo-sticker{
+    position:absolute;
+    background:var(--white);
+    padding:10px 17px;
+    font-family:"Parisienne",cursive;
+    font-size:24px;
+    color:var(--pink-dark);
+    transform:rotate(5deg);
+    right:-30px;
+    bottom:22px;
+    box-shadow:3px 4px 0 rgba(50,30,25,.08);
 }
 
-.interests {
-  margin-top: 14px;
-  font-size: 14px;
-  color: var(--brown-light);
+.hero-star{
+    position:absolute;
+    left:-30px;
+    top:-25px;
+    color:var(--pink-dark);
+    font-size:40px;
 }
 
-.availability {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 10px 17px;
-  background: var(--rose-light);
-  border-radius: 30px;
-  font-size: 13px;
+.hero-content{
+    position:relative;
 }
 
-.location {
-  margin-top: 13px;
-  font-size: 13px;
-  color: var(--brown-light);
+.tiny-note{
+    font-family:"Parisienne",cursive;
+    color:var(--pink-dark);
+    font-size:25px;
+    margin-bottom:5px;
 }
 
-.clock {
-  margin-top: 25px;
-  font-size: 13px;
-  letter-spacing: 0.5px;
+.hero h1{
+    font-family:"DM Serif Display",serif;
+    font-weight:400;
+    font-size:clamp(58px,8vw,105px);
+    line-height:.82;
+    letter-spacing:-3px;
 }
 
-.section-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 55px;
-  color: var(--black);
-  margin-bottom: 35px;
-  font-weight: 600;
+.hero h1 .name{
+    display:block;
 }
 
-.about {
-  background: var(--white);
-  max-width: none;
+.hero h1 .surname{
+    display:block;
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(20px,3vw,38px);
+    letter-spacing:5px;
+    font-weight:600;
+    color:var(--pink-dark);
+    margin-top:25px;
 }
 
-.about-inner,
-.content-inner {
-  max-width: 1000px;
-  margin: auto;
+.hero-intro{
+    max-width:680px;
+    margin-top:30px;
+    font-size:18px;
 }
 
-.about p {
-  max-width: 800px;
-  font-size: 17px;
-  margin-bottom: 18px;
+.hero-intro strong{
+    color:var(--pink-dark);
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+.pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:20px;
 }
 
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  padding: 28px 22px;
-  min-height: 190px;
+.pill{
+    padding:8px 15px;
+    border-radius:30px;
+    background:var(--white);
+    border:1px solid var(--line);
+    font-size:12px;
 }
 
-.card-number {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 25px;
-  color: #a67f7c;
+.available{
+    display:inline-block;
+    margin-top:25px;
+    background:var(--pink-dark);
+    color:white;
+    padding:11px 18px;
+    border-radius:30px;
+    font-size:12px;
 }
 
-.card h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 25px;
-  margin: 12px 0 8px;
-  color: var(--black);
+.location{
+    margin-top:13px;
+    font-size:13px;
+    color:var(--muted);
 }
 
-.card p {
-  font-size: 14px;
-  color: var(--brown-light);
+.datetime{
+    margin-top:18px;
+    font-size:12px;
+    color:var(--muted);
 }
 
-.tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+/* SOBRE MÍ */
+
+.about{
+    max-width:none;
+    background:var(--pink-light);
+    position:relative;
 }
 
-.tool {
-  padding: 12px 18px;
-  border: 1px solid var(--line);
-  background: var(--white);
-  border-radius: 30px;
-  font-size: 14px;
+.about-inner{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:.8fr 1.5fr;
+    gap:80px;
+    align-items:start;
 }
 
-.languages {
-  display: grid;
-  gap: 16px;
-  max-width: 800px;
+.about-title{
+    position:sticky;
+    top:100px;
 }
 
-.language {
-  padding: 20px;
-  background: var(--white);
-  border-left: 4px solid var(--rose);
+.about-title .hand{
+    font-family:"Parisienne",cursive;
+    font-size:32px;
+    color:var(--pink-dark);
 }
 
-.language strong {
-  color: var(--black);
+.about-text{
+    font-size:17px;
 }
 
-.timeline {
-  border-left: 1px solid var(--line);
-  padding-left: 28px;
-  display: grid;
-  gap: 35px;
+.about-text p{
+    margin-bottom:22px;
 }
 
-.timeline-item h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 29px;
-  color: var(--black);
+.about-text .highlight{
+    font-family:"DM Serif Display",serif;
+    font-size:29px;
+    line-height:1.25;
+    color:var(--pink-dark);
 }
 
-.timeline-item .date {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #a67f7c;
+/* APORTACIÓN */
+
+.apport{
+    background:var(--cream);
 }
 
-.timeline-item p {
-  margin-top: 7px;
-  color: var(--brown-light);
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
 }
 
-.area-box {
-  margin-top: 40px;
-  padding: 30px;
-  background: var(--cream-dark);
+.card{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:30px;
+    position:relative;
+    min-height:210px;
+    transition:.2s;
 }
 
-.area-box h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-  color: var(--black);
-  margin-bottom: 15px;
+.card:nth-child(2){
+    transform:rotate(1deg);
 }
 
-.area-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.card:nth-child(3){
+    transform:rotate(-1deg);
 }
 
-.area {
-  background: var(--white);
-  padding: 9px 15px;
-  border-radius: 20px;
-  font-size: 13px;
+.card:hover{
+    transform:translateY(-5px) rotate(0);
 }
 
-.contact {
-  background: var(--black);
-  color: var(--cream);
-  max-width: none;
+.card-number{
+    font-family:"DM Serif Display",serif;
+    font-size:38px;
+    color:var(--pink);
 }
 
-.contact .content-inner {
-  text-align: center;
+.card h3{
+    font-family:"DM Serif Display",serif;
+    font-size:30px;
+    margin:5px 0 10px;
 }
 
-.contact .section-title {
-  color: var(--cream);
+.card p{
+    color:var(--muted);
+    font-size:14px;
 }
 
-.contact p {
-  max-width: 650px;
-  margin: 0 auto 30px;
-  color: #e8ddd6;
+/* HERRAMIENTAS */
+
+.tools-section{
+    background:var(--yellow-light);
+    max-width:none;
 }
 
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.tools-inner{
+    max-width:1050px;
+    margin:auto;
 }
 
-.contact-links a,
-.cv-button {
-  text-decoration: none;
-  padding: 12px 20px;
-  border: 1px solid #8d7771;
-  color: var(--cream);
-  border-radius: 30px;
-  font-size: 13px;
+.tools-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
 }
 
-.cv-button {
-  display: inline-block;
-  margin-top: 25px;
-  background: var(--rose);
-  color: var(--black);
-  border: none;
+.tool{
+    background:var(--white);
+    padding:13px 20px;
+    border:1px solid var(--line);
+    border-radius:30px;
+    font-size:13px;
 }
 
-footer {
-  background: var(--black);
-  color: #a99a94;
-  text-align: center;
-  padding: 25px;
-  font-size: 12px;
+/* IDIOMAS */
+
+.languages{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-@media (max-width: 800px) {
-  nav {
-    padding: 15px 5%;
-    align-items: flex-start;
-  }
-
-  nav div:last-child {
-    gap: 10px;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    min-height: auto;
-    padding-top: 60px;
-  }
-
-  .photo-box img {
-    width: 230px;
-    height: 290px;
-  }
-
-  h1 {
-    font-size: 60px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  section {
-    padding: 70px 7%;
-  }
+.language{
+    background:var(--white);
+    padding:25px;
+    border-top:5px solid var(--pink);
 }
 
-@media (max-width: 520px) {
-  nav {
-    display: block;
-  }
-
-  nav div:last-child {
-    margin-top: 10px;
-    justify-content: flex-start;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 52px;
-  }
-
-  .section-title {
-    font-size: 45px;
-  }
+.language h3{
+    font-family:"DM Serif Display",serif;
+    font-size:28px;
+    margin-bottom:8px;
 }
+
+.language p{
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* FORMACIÓN */
+
+.timeline{
+    max-width:900px;
+    border-left:2px solid var(--pink-light);
+    padding-left:30px;
+}
+
+.timeline-item{
+    position:relative;
+    margin-bottom:45px;
+}
+
+.timeline-item::before{
+    content:"";
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--pink);
+    position:absolute;
+    left:-37px;
+    top:7px;
+}
+
+.timeline-date{
+    color:var(--pink-dark);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+}
+
+.timeline-item h3{
+    font-family:"DM Serif Display",serif;
+    font-size:31px;
+    margin:5px 0;
+}
+
+.timeline-item p{
+    color:var(--muted);
+}
+
+/* EXPERIENCIA */
+
+.experience{
+    background:var(--cream2);
+    max-width:none;
+}
+
+.experience-inner{
+    max-width:1050px;
+    margin:auto;
+}
+
+.experience-card{
+    background:var(--white);
+    padding:32px;
+    margin-bottom:20px;
+    border:1px solid var(--line);
+}
+
+.experience-card h3{
+    font-family:"DM Serif Display",serif;
+    font-size:30px;
+    color:var(--pink-dark);
+}
+
+.experience-card .role{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--muted);
+    margin-bottom:12px;
+}
+
+/* ÁREAS */
+
+.areas{
+    margin-top:50px;
+}
+
+.area-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.area{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:9px 15px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+/* CONTACTO */
+
+.contact{
+    background:var(--pink-dark);
+    color:white;
+    max-width:none;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.contact::before{
+    content:"✦";
+    position:absolute;
+    font-size:160px;
+    color:rgba(255,255,255,.08);
+    right:5%;
+    top:0;
+}
+
+.contact .section-title{
+    color:white;
+}
+
+.contact p{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#ffecef;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.contact-links a{
+    color:white;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.5);
+    padding:11px 20px;
+    border-radius:30px;
+    font-size:13px;
+}
+
+.cv{
+    display:inline-block;
+    margin-top:25px;
+    background:var(--yellow);
+    color:var(--brown);
+    padding:13px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+    background:#302321;
+    color:#cdbdb8;
+    text-align:center;
+    padding:25px;
+    font-size:11px;
+}
+
+/* MÓVIL */
+
+@media(max-width:850px){
+
+    nav{
+        display:block;
+    }
+
+    nav .links{
+        margin-top:10px;
+        justify-content:flex-start;
+        gap:12px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        gap:45px;
+        padding-top:65px;
+    }
+
+    .photo-frame{
+        width:270px;
+        height:340px;
+    }
+
+    .hero h1{
+        font-size:60px;
+    }
+
+    .about-inner{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .about-title{
+        position:static;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .languages{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    section{
+        padding:70px 6%;
+    }
+
+    .photo-frame{
+        width:230px;
+        height:290px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero h1 .surname{
+        font-size:19px;
+        letter-spacing:3px;
+    }
+
+    .section-title{
+        font-size:45px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <nav>
-  <div class="logo">AL.</div>
 
-  <div>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#aportacion">Lo que aporto</a>
-    <a href="#herramientas">Herramientas</a>
-    <a href="#formacion">Formación</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+    <div class="logo">AL.</div>
+
+    <div class="links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#aportacion">Lo que aporto</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#formacion">Formación</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
 </nav>
+
+
+<!-- INICIO -->
 
 <section class="hero">
 
-  <div class="photo-box">
-    <img src="foto.jpg" alt="Armelia Linette Nzang MOUNÉ ANDEME">
-    <div class="photo-note">encantada de conocerte ♡</div>
-  </div>
+    <div class="hero-photo">
 
-  <div>
-    <div class="small-label">Portafolio personal · 2026</div>
+        <div class="hero-star">✦</div>
 
-    <h1>
-      <span>Armelia</span>
-      <span>Linette Nzang</span>
-      <span class="surname">MOUNÉ ANDEME</span>
-    </h1>
+        <div class="photo-frame">
+            <img src="foto.jpg" alt="Armelia Linette Nzang MOUNÉ ANDEME">
+        </div>
 
-    <p class="hero-subtitle">
-      Estudiante de Administración y Dirección de Empresas.
-    </p>
+        <div class="photo-sticker">
+            esta soy yo ♡
+        </div>
 
-    <p class="interests">
-      Administración · Compras · Operaciones
-    </p>
-
-    <div class="availability">
-      Disponible para prácticas profesionales
     </div>
 
-    <p class="location">♡ Malabo, Guinea Ecuatorial</p>
 
-    <p class="clock">
-      <span id="date-time"></span>
-    </p>
-  </div>
+    <div class="hero-content">
+
+        <div class="tiny-note">
+            bienvenida a mi pequeño rincón profesional
+        </div>
+
+        <h1>
+
+            <span class="name">Armelia</span>
+
+            <span class="name">Linette Nzang</span>
+
+            <span class="surname">MOUNÉ ANDEME</span>
+
+        </h1>
+
+
+        <p class="hero-intro">
+
+            Estudio <strong>Administración y Dirección de Empresas</strong>
+            y estoy en mi último año de universidad.
+
+            Me interesa descubrir cómo funcionan las organizaciones
+            desde dentro, aprender haciendo y encontrar espacios donde
+            pueda aportar mi manera de trabajar.
+
+        </p>
+
+
+        <div class="pills">
+
+            <span class="pill">Administración</span>
+            <span class="pill">Compras</span>
+            <span class="pill">Operaciones</span>
+
+        </div>
+
+
+        <div class="available">
+            Disponible para prácticas profesionales
+        </div>
+
+
+        <p class="location">
+            ♡ Malabo, Guinea Ecuatorial
+        </p>
+
+
+        <p class="datetime">
+            <span id="date-time"></span>
+        </p>
+
+    </div>
 
 </section>
+
+
+<!-- SOBRE MÍ -->
 
 <section class="about" id="sobre-mi">
-  <div class="about-inner">
 
-    <h2 class="section-title">Sobre mí</h2>
+    <div class="about-inner">
 
-    <p>
-      Me gusta que las cosas tengan sentido, estén ordenadas y queden bien hechas.
-      Disfruto organizando, escribiendo, revisando información y cuidando esos
-      pequeños detalles que pueden marcar la diferencia.
-    </p>
+        <div class="about-title">
 
-    <p>
-      También me gusta aprender, descubrir nuevas formas de hacer las cosas
-      y trabajar con otras personas para que una tarea llegue a buen resultado.
-    </p>
+            <div class="hand">
+                un poquito sobre mí...
+            </div>
 
-    <p>
-      Ahora quiero dar el paso de la universidad al mundo profesional,
-      conocer de cerca cómo funcionan las organizaciones y seguir desarrollando
-      todo aquello que puedo aportar desde mi forma de trabajar.
-    </p>
+            <h2 class="section-title">
+                Hola, soy Armelia.
+            </h2>
 
-  </div>
+        </div>
+
+
+        <div class="about-text">
+
+            <p class="highlight">
+                Me gusta que las cosas estén organizadas,
+                que tengan sentido y que queden bien hechas.
+            </p>
+
+
+            <p>
+                Siempre he tenido cierta facilidad para poner orden,
+                organizar cosas, revisar lo que está escrito y darme cuenta
+                de esos pequeños detalles que a veces se escapan.
+            </p>
+
+
+            <p>
+                También disfruto escribiendo, aprendiendo cosas nuevas
+                y buscando maneras de hacer que una tarea sea más clara,
+                sencilla y llevadera.
+            </p>
+
+
+            <p>
+                Durante mi etapa universitaria he tenido la oportunidad
+                de trabajar con otras personas, asumir responsabilidades
+                dentro de mi entorno estudiantil y participar en actividades
+                que me han permitido salir un poco de la rutina de las aulas.
+            </p>
+
+
+            <p>
+                Ahora estoy en ese momento en el que quiero conocer
+                el mundo laboral de verdad. Quiero aprender, equivocarme,
+                mejorar, descubrir en qué puedo crecer y, sobre todo,
+                encontrar un lugar donde mi forma de trabajar también
+                pueda ser útil.
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section id="aportacion">
 
-  <div class="content-inner">
+<!-- QUÉ APORTO -->
 
-    <h2 class="section-title">Lo que aporto</h2>
+<section class="apport" id="aportacion">
+
+    <div class="section-tag">
+        lo que puedo aportar
+    </div>
+
+    <h2 class="section-title">
+        ¿En qué puedo ayudar?
+    </h2>
+
 
     <div class="cards">
 
-      <div class="card">
-        <div class="card-number">01</div>
-        <h3>Organización</h3>
-        <p>
-          Puedo ayudar a ordenar información, documentos y tareas para facilitar
-          el trabajo y hacer más claro el seguimiento.
-        </p>
-      </div>
+        <div class="card">
 
-      <div class="card">
-        <div class="card-number">02</div>
-        <h3>Atención al detalle</h3>
-        <p>
-          Me fijo especialmente en la redacción, presentación, revisión y
-          pequeños errores que pueden pasar desapercibidos.
-        </p>
-      </div>
+            <div class="card-number">01</div>
 
-      <div class="card">
-        <div class="card-number">03</div>
-        <h3>Apoyo al equipo</h3>
-        <p>
-          Puedo colaborar en tareas administrativas, organización,
-          coordinación y seguimiento de actividades.
-        </p>
-      </div>
+            <h3>Organización</h3>
 
-      <div class="card">
-        <div class="card-number">04</div>
-        <h3>Aprendizaje</h3>
-        <p>
-          Quiero aprender cómo se trabaja realmente dentro de una organización
-          y convertir mis conocimientos académicos en experiencia práctica.
-        </p>
-      </div>
+            <p>
+                Puedo ayudar a organizar información, documentos,
+                tareas y actividades para que el trabajo sea más claro
+                y fácil de seguir.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">02</div>
+
+            <h3>Atención al detalle</h3>
+
+            <p>
+                Me gusta revisar, corregir y cuidar la presentación
+                de los documentos para que la información esté clara
+                y correctamente presentada.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">03</div>
+
+            <h3>Apoyo al equipo</h3>
+
+            <p>
+                Puedo colaborar en tareas administrativas, coordinación,
+                seguimiento y organización de actividades cuando el equipo
+                necesita apoyo.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">04</div>
+
+            <h3>Aprender haciendo</h3>
+
+            <p>
+                No pretendo saberlo todo. Quiero aprender cómo se trabaja
+                realmente en una organización y convertir lo aprendido
+                en la universidad en experiencia práctica.
+            </p>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
-<section id="herramientas">
 
-  <div class="content-inner">
+<!-- HERRAMIENTAS -->
 
-    <h2 class="section-title">Herramientas</h2>
+<section class="tools-section" id="herramientas">
 
-    <div class="tools">
-      <span class="tool">Microsoft Word</span>
-      <span class="tool">Microsoft Excel · básico</span>
-      <span class="tool">Canva</span>
-      <span class="tool">ChatGPT</span>
-      <span class="tool">Herramientas de IA</span>
-      <span class="tool">Herramientas digitales</span>
+    <div class="tools-inner">
+
+        <div class="section-tag">
+            herramientas
+        </div>
+
+        <h2 class="section-title">
+            Las que utilizo
+        </h2>
+
+
+        <div class="tools-grid">
+
+            <span class="tool">Microsoft Word</span>
+
+            <span class="tool">Microsoft Excel · básico</span>
+
+            <span class="tool">Canva</span>
+
+            <span class="tool">ChatGPT</span>
+
+            <span class="tool">Herramientas de IA</span>
+
+            <span class="tool">Herramientas digitales</span>
+
+        </div>
+
+
+        <!-- IDIOMAS -->
+
+        <div class="languages">
+
+            <div class="language">
+
+                <h3>Español</h3>
+
+                <p>
+                    Nativo. Dominio oral y escrito.
+                </p>
+
+            </div>
+
+
+            <div class="language">
+
+                <h3>Francés</h3>
+
+                <p>
+                    Escribo correctamente y puedo mantener una conversación.
+                    Mi fluidez oral todavía está en desarrollo y quiero seguir
+                    practicando para desenvolverme con mayor soltura,
+                    especialmente en situaciones profesionales.
+                </p>
+
+            </div>
+
+
+            <div class="language">
+
+                <h3>Inglés</h3>
+
+                <p>
+                    Nivel básico, adquirido principalmente durante
+                    mi formación académica.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
-
-    <h2 class="section-title" style="margin-top:90px;">Idiomas</h2>
-
-    <div class="languages">
-
-      <div class="language">
-        <strong>Español</strong><br>
-        Nativo · Dominio oral y escrito
-      </div>
-
-      <div class="language">
-        <strong>Francés</strong><br>
-        Buen dominio escrito · Comunicación oral · Fluidez oral en desarrollo
-      </div>
-
-      <div class="language">
-        <strong>Inglés</strong><br>
-        Conocimientos básicos adquiridos durante la formación académica
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
+
+
+<!-- FORMACIÓN -->
 
 <section id="formacion">
 
-  <div class="content-inner">
+    <div class="section-tag">
+        mi camino
+    </div>
 
-    <h2 class="section-title">Formación</h2>
+    <h2 class="section-title">
+        Formación
+    </h2>
+
 
     <div class="timeline">
 
-      <div class="timeline-item">
+        <div class="timeline-item">
 
-        <div class="date">Actualidad</div>
+            <div class="timeline-date">
+                Actualidad
+            </div>
 
-        <h3>
-          Universidad Nacional de Guinea Ecuatorial
-        </h3>
+            <h3>
+                Universidad Nacional de Guinea Ecuatorial
+            </h3>
 
-        <p>
-          Administración y Dirección de Empresas
-        </p>
+            <p>
+                Administración y Dirección de Empresas
+            </p>
 
-        <p>
-          Último año · Créditos requeridos alcanzados
-        </p>
+            <p>
+                Último año de formación universitaria.
+            </p>
 
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
-<section id="experiencia">
 
-  <div class="content-inner">
+<!-- EXPERIENCIA -->
 
-    <h2 class="section-title">Experiencia y participación</h2>
+<section class="experience" id="experiencia">
 
-    <div class="timeline">
+    <div class="experience-inner">
 
-      <div class="timeline-item">
+        <div class="section-tag">
+            más allá de las aulas
+        </div>
 
-        <div class="date">Participación y voluntariado</div>
+        <h2 class="section-title">
+            Experiencia y participación
+        </h2>
 
-        <h3>IDENTIC · TegCampus</h3>
 
-        <p>
-          Participación en actividades relacionadas con organización,
-          apoyo al equipo, preparación de espacios, acompañamiento de
-          grabaciones, búsqueda de información y atención durante el evento.
-        </p>
+        <div class="experience-card">
 
-      </div>
+            <div class="role">
+                Participación y voluntariado
+            </div>
 
-      <div class="timeline-item">
+            <h3>
+                IDENTIC · TegCampus
+            </h3>
 
-        <div class="date">Representación estudiantil</div>
+            <p>
+                He participado en actividades de TegCampus colaborando
+                en diferentes tareas según las necesidades de la organización.
+                Entre ellas, preparación de espacios, acompañamiento de
+                grabaciones, búsqueda de información para la actualización
+                de contenidos y apoyo en la atención durante el evento.
+            </p>
 
-        <h3>Universidad</h3>
+        </div>
 
-        <p>
-          Participación en funciones de representación estudiantil,
-          organización y coordinación dentro del entorno universitario.
-        </p>
 
-      </div>
+        <div class="experience-card">
+
+            <div class="role">
+                Participación en actividades del evento
+            </div>
+
+            <h3>
+                Organización y recogida de información
+            </h3>
+
+            <p>
+                También participé en tareas relacionadas con participantes,
+                organización y voluntariado, además de realizar encuestas
+                de entrada para recoger información de los asistentes
+                como edad y profesión para su posterior análisis.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <div class="role">
+                Entorno universitario
+            </div>
+
+            <h3>
+                Representación estudiantil
+            </h3>
+
+            <p>
+                He asumido responsabilidades de representación dentro
+                de mi entorno universitario, desempeñando funciones como
+                secretaria y subdelegada en diferentes ocasiones.
+            </p>
+
+        </div>
+
+
+        <div class="areas">
+
+            <h3 style="font-family:'DM Serif Display',serif;font-size:30px;margin-bottom:18px;">
+                Áreas que me gustaría conocer
+            </h3>
+
+
+            <div class="area-list">
+
+                <span class="area">Administración</span>
+
+                <span class="area">Compras</span>
+
+                <span class="area">Operaciones</span>
+
+                <span class="area">Organización y procesos</span>
+
+                <span class="area">Compras y proveedores</span>
+
+                <span class="area">Operaciones y servicios generales</span>
+
+                <span class="area">Gestión de proyectos</span>
+
+            </div>
+
+        </div>
 
     </div>
-
-    <div class="area-box">
-
-      <h3>Áreas en las que me interesa desarrollarme</h3>
-
-      <div class="area-list">
-        <span class="area">Administración</span>
-        <span class="area">Compras</span>
-        <span class="area">Operaciones</span>
-        <span class="area">Organización y procesos</span>
-        <span class="area">Compras y proveedores</span>
-        <span class="area">Operaciones y servicios generales</span>
-        <span class="area">Gestión de proyectos</span>
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
+
+
+<!-- CONTACTO -->
 
 <section class="contact" id="contacto">
 
-  <div class="content-inner">
+    <div class="section-tag" style="background:var(--yellow);color:var(--brown);">
+        ¿hablamos?
+    </div>
 
-    <h2 class="section-title">Hablemos</h2>
+    <h2 class="section-title">
+        Me encantará que<br>conozcas mi trabajo.
+    </h2>
 
     <p>
-      Actualmente estoy disponible para realizar prácticas profesionales
-      y conocer de cerca el funcionamiento de una organización,
-      aportando lo que ya sé hacer y aprendiendo de la experiencia.
+        Actualmente estoy disponible para realizar prácticas profesionales.
+        Busco una oportunidad para aprender, aportar y descubrir cómo
+        puedo desarrollar mis conocimientos dentro de una organización.
     </p>
+
 
     <div class="contact-links">
 
-      <a href="#">LinkedIn</a>
-      <a href="#">WhatsApp</a>
-      <a href="#">Email</a>
+        <a href="#">LinkedIn</a>
+
+        <a href="#">WhatsApp</a>
+
+        <a href="#">Email</a>
 
     </div>
 
-    <a href="#" class="cv-button">Descargar CV</a>
 
-  </div>
+    <a href="#" class="cv">
+        ♡ Descargar mi CV
+    </a>
 
 </section>
 
+
 <footer>
-  © 2026 Armelia Linette Nzang MOUNÉ ANDEME · Portafolio profesional
+
+    Armelia Linette Nzang MOUNÉ ANDEME · 2026
+
 </footer>
 
+
 <script>
-function actualizarFechaHora() {
-  const ahora = new Date();
 
-  const opciones = {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit"
-  };
+function actualizarFechaHora(){
 
-  document.getElementById("date-time").textContent =
-    ahora.toLocaleString("es-ES", opciones);
+    const ahora = new Date();
+
+    const opciones = {
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        year:"numeric",
+        hour:"2-digit",
+        minute:"2-digit"
+    };
+
+    document.getElementById("date-time").textContent =
+        ahora.toLocaleString("es-ES", opciones);
+
 }
 
 actualizarFechaHora();
-setInterval(actualizarFechaHora, 60000);
+
+setInterval(actualizarFechaHora,60000);
+
 </script>
 
 </body>
