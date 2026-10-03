@@ -652,7 +652,37 @@ footer{
     }
 
 }
+.live-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(230, 95, 131, 0.25);
+  border-radius: 999px;
+  background: rgba(255, 253, 252, 0.78);
+  color: #B9365C;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 18px rgba(185, 54, 92, 0.08);
+  backdrop-filter: blur(8px);
+}
 
+.clock-flower {
+  display: inline-block;
+  font-size: 1rem;
+  animation: flowerPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes flowerPulse {
+  from {
+    transform: scale(1) rotate(-4deg);
+    opacity: 0.72;
+  }
+  to {
+    transform: scale(1.08) rotate(4deg);
+    opacity: 1;
+  }
+}
 </style>
 </head>
 
@@ -742,7 +772,10 @@ footer{
 
 
         <p class="datetime">
-            <span id="date-time"></span>
+           <div class="live-clock">
+  <span class="clock-flower">✿</span>
+  <span id="date-time"></span>
+</div>
         </p>
 
     </div>
@@ -1165,27 +1198,27 @@ footer{
 
 <script>
 
-function actualizarFechaHora(){
+function actualizarFechaHora() {
+  const ahora = new Date();
 
-    const ahora = new Date();
+  const opciones = {
+    timeZone: "Africa/Malabo",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23"
+  };
 
-    const opciones = {
-        weekday:"long",
-        day:"numeric",
-        month:"long",
-        year:"numeric",
-        hour:"2-digit",
-        minute:"2-digit"
-    };
-
-    document.getElementById("date-time").textContent =
-        ahora.toLocaleString("es-ES", opciones);
-
+  document.getElementById("date-time").textContent =
+    ahora.toLocaleString("es-ES", opciones);
 }
 
 actualizarFechaHora();
-
-setInterval(actualizarFechaHora,60000);
+setInterval(actualizarFechaHora, 1000);
 
 </script>
 
