@@ -1,129 +1,908 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armelia Linette Nzang MOUNÉ ANDEME</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f4f1;
-    color: #292525;
-}
+  <title>Armelia Linette Nzang MOUNÉ ANDEME</title>
 
-header {
-    padding: 70px 25px;
-    text-align: center;
-    background: #e9ddd5;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-h1 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
+  <style>
+    :root {
+      --cream: #f8f4ee;
+      --paper: #fffdf9;
+      --rose: #d9b9b5;
+      --rose-light: #ead8d5;
+      --brown: #403431;
+      --soft-brown: #756662;
+      --line: #ded3ca;
+      --white: #ffffff;
+    }
 
-header p {
-    font-size: 18px;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-section {
-    max-width: 850px;
-    margin: auto;
-    padding: 55px 25px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-}
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
 
-.card {
-    background: white;
-    padding: 25px;
-    margin: 15px 0;
-    border-radius: 18px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.buttons a {
-    display: inline-block;
-    margin: 8px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    background: #292525;
-    color: white;
-    text-decoration: none;
-}
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #e9ddd5;
-}
-</style>
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 244, 238, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(64, 52, 49, 0.08);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+    }
+
+    .nav-links a {
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #a87973;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 70px;
+      padding: 80px 0 100px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      color: #9b7771;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(58px, 8vw, 105px);
+      line-height: 0.85;
+      font-weight: 500;
+      letter-spacing: -3px;
+      margin-bottom: 30px;
+    }
+
+    h1 span {
+      display: block;
+      font-style: italic;
+      color: #8d716c;
+      font-size: 0.75em;
+      margin-top: 15px;
+      letter-spacing: -1px;
+    }
+
+    .hero-description {
+      max-width: 570px;
+      font-size: 17px;
+      color: var(--soft-brown);
+      margin-bottom: 28px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: rgba(255,255,255,0.45);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #9e746d;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* PHOTO */
+
+    .portrait-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portrait-frame {
+      width: min(390px, 82vw);
+      height: 500px;
+      background: var(--rose-light);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      width: 88%;
+      height: 92%;
+      border: 1px solid rgba(64,52,49,0.22);
+      z-index: 2;
+    }
+
+    .portrait-placeholder {
+      text-align: center;
+      padding: 40px;
+      color: #806d69;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .portrait-placeholder small {
+      display: block;
+      margin-top: 15px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .location {
+      position: absolute;
+      bottom: -25px;
+      left: -25px;
+      background: var(--paper);
+      padding: 18px 24px;
+      box-shadow: 0 12px 35px rgba(64,52,49,0.08);
+      font-size: 12px;
+      letter-spacing: 0.7px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.4fr 1fr;
+      gap: 60px;
+      margin-bottom: 65px;
+    }
+
+    .section-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      color: #a4817c;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(45px, 6vw, 75px);
+      line-height: 0.95;
+      font-weight: 500;
+    }
+
+    .section-text {
+      max-width: 760px;
+      color: var(--soft-brown);
+      font-size: 16px;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 38px;
+      min-height: 260px;
+      border: 1px solid rgba(64,52,49,0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px rgba(64,52,49,0.09);
+    }
+
+    .card-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: #a4817c;
+      margin-bottom: 30px;
+    }
+
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--soft-brown);
+      font-size: 14px;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 45px;
+      padding: 35px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #a4817c;
+    }
+
+    .timeline h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .timeline h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: #876f6a;
+      margin-bottom: 12px;
+    }
+
+    .timeline p {
+      color: var(--soft-brown);
+      font-size: 14px;
+      max-width: 700px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      border: 1px solid var(--line);
+      padding: 13px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.45);
+      font-size: 13px;
+    }
+
+    /* AVAILABILITY */
+
+    .availability-section {
+      background: #eadbd7;
+      text-align: center;
+    }
+
+    .availability-section h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(50px, 7vw, 85px);
+      font-weight: 500;
+      line-height: 0.95;
+      margin-bottom: 25px;
+    }
+
+    .availability-section p {
+      max-width: 600px;
+      margin: auto;
+      color: #665550;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+    }
+
+    .contact-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 60px;
+      line-height: 0.95;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .contact-link {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .contact-link:hover {
+      color: #9b7771;
+      padding-left: 5px;
+    }
+
+    form {
+      background: var(--paper);
+      padding: 35px;
+    }
+
+    label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-bottom: 8px;
+      color: #816b66;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      padding: 12px 0;
+      margin-bottom: 25px;
+      font-family: "DM Sans", sans-serif;
+      color: var(--brown);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      background: var(--brown);
+      color: white;
+      padding: 14px 25px;
+      font-family: "DM Sans", sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #80645f;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      font-size: 11px;
+      color: #8b7772;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+      }
+
+      .portrait-area {
+        order: -1;
+      }
+
+      .portrait-frame {
+        height: 420px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 65px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Armelia Linette Nzang MOUNÉ ANDEME</h1>
-    <p>Estudiante de Administración y Dirección de Empresas</p>
-    <p>Malabo, Guinea Ecuatorial</p>
-</header>
+  <nav>
+    <div class="container nav-inner">
+      <a href="#inicio" class="logo">AL.</a>
 
-<section>
-    <h2>Sobre mí</h2>
-    <div class="card">
-        <p>
-        Soy estudiante de Administración y Dirección de Empresas en la Universidad Nacional de Guinea Ecuatorial.
-        Actualmente curso mi último año y estoy interesada en desarrollarme profesionalmente en las áreas de Administración,
-        Compras y Operaciones.
+      <div class="nav-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#formacion">Formación</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#intereses">Intereses</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- INICIO -->
+
+    <section class="container hero" id="inicio">
+
+      <div>
+        <div class="eyebrow">Portafolio profesional · 2026</div>
+
+        <h1>
+          Armelia Linette
+          <span>Nzang Mouné Andeme</span>
+        </h1>
+
+        <p class="hero-description">
+          Estudiante de Administración y Dirección de Empresas,
+          interesada en desarrollarme profesionalmente en los ámbitos
+          de Administración, Compras y Operaciones.
         </p>
+
+        <div class="availability">
+          <span class="dot"></span>
+          Disponible para prácticas profesionales
+        </div>
+      </div>
+
+      <div class="portrait-area">
+
+        <div class="portrait-frame">
+          <div class="portrait-placeholder">
+            Tu fotografía
+            <small>Espacio reservado para tu foto de perfil</small>
+          </div>
+        </div>
+
+        <div class="location">
+          ♡ Malabo, Guinea Ecuatorial
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SOBRE MÍ -->
+
+    <section id="sobre-mi">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-number">01 / Perfil</div>
+
+          <div>
+            <h2 class="section-title">Sobre mí</h2>
+          </div>
+        </div>
+
+        <div class="section-text">
+
+          <p>
+            Soy estudiante de Administración y Dirección de Empresas
+            en la Universidad Nacional de Guinea Ecuatorial y actualmente
+            curso mi último año.
+          </p>
+
+          <br>
+
+          <p>
+            Mi interés profesional se encuentra especialmente en la
+            organización, la gestión administrativa, los procesos de
+            compras y el apoyo a las operaciones. Me interesa trasladar
+            los conocimientos adquiridos durante mi formación al entorno
+            profesional y continuar desarrollando mis capacidades a
+            través de experiencias prácticas.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FORMACIÓN -->
+
+    <section id="formacion">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-number">02 / Formación</div>
+
+          <div>
+            <h2 class="section-title">Formación académica</h2>
+          </div>
+        </div>
+
+        <div class="card">
+
+          <div class="card-number">UNGE · 01</div>
+
+          <h3>Administración y Dirección de Empresas</h3>
+
+          <p>
+            Universidad Nacional de Guinea Ecuatorial (UNGE)
+          </p>
+
+          <br>
+
+          <p>
+            Último año de formación universitaria.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCIA -->
+
+    <section id="experiencia">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-number">03 / Experiencia</div>
+
+          <div>
+            <h2 class="section-title">Experiencia y participación</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              Participación
+            </div>
+
+            <div>
+              <h3>IDENTIC / TegCampus</h3>
+
+              <h4>Colaboración en actividades y organización de eventos</h4>
+
+              <p>
+                Participación en actividades relacionadas con la preparación
+                de espacios, apoyo en grabaciones, búsqueda y recopilación
+                de información, atención y recepción durante eventos,
+                así como apoyo en la recopilación de información de
+                participantes mediante encuestas.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              Experiencia universitaria
+            </div>
+
+            <div>
+              <h3>Secretaría y representación estudiantil</h3>
+
+              <h4>Universidad Nacional de Guinea Ecuatorial</h4>
+
+              <p>
+                Participación en funciones de organización, coordinación
+                y comunicación dentro del entorno universitario, incluyendo
+                responsabilidades como secretaria y subdelegada.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- INTERESES -->
+
+    <section id="intereses">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-number">04 / Intereses</div>
+
+          <div>
+            <h2 class="section-title">Áreas de interés</h2>
+          </div>
+        </div>
+
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="card-number">01</div>
+            <h3>Administración</h3>
+            <p>
+              Organización, gestión documental, seguimiento de información
+              y apoyo a las actividades administrativas.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-number">02</div>
+            <h3>Compras</h3>
+            <p>
+              Interés en la organización de pedidos, seguimiento de
+              proveedores y apoyo en los procesos de adquisición.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-number">03</div>
+            <h3>Operaciones</h3>
+            <p>
+              Organización y coordinación de actividades y apoyo en
+              procesos orientados al funcionamiento eficiente de una
+              organización.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- HABILIDADES -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-number">05 / Habilidades</div>
+
+          <div>
+            <h2 class="section-title">Lo que aporto</h2>
+
+            <p class="section-text">
+              Capacidades desarrolladas durante mi formación académica,
+              participación universitaria y experiencias de colaboración.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills">
+
+          <span class="skill">Organización</span>
+          <span class="skill">Gestión documental</span>
+          <span class="skill">Redacción</span>
+          <span class="skill">Revisión de documentos</span>
+          <span class="skill">Organización de información</span>
+          <span class="skill">Coordinación</span>
+          <span class="skill">Trabajo en equipo</span>
+          <span class="skill">Comunicación</span>
+          <span class="skill">Atención</span>
+          <span class="skill">Herramientas digitales</span>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- DISPONIBILIDAD -->
+
+    <section class="availability-section">
+
+      <div class="container">
+
+        <div class="eyebrow">Oportunidades profesionales</div>
+
+        <h2>
+          Disponible para<br>
+          prácticas profesionales.
+        </h2>
+
+        <p>
+          Actualmente disponible para incorporarme a una experiencia
+          práctica que me permita aplicar mis conocimientos, aprender
+          del entorno profesional y continuar desarrollando mis
+          capacidades.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section id="contacto">
+
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <div>
+
+            <div class="eyebrow">06 / Contacto</div>
+
+            <h2 class="contact-title">
+              Hablemos.
+            </h2>
+
+            <p class="section-text">
+              Si deseas conocer más sobre mi perfil profesional o
+              conversar sobre una oportunidad de prácticas, puedes
+              ponerte en contacto conmigo.
+            </p>
+
+            <div class="contact-info">
+
+              <a href="#" class="contact-link">
+                LinkedIn ↗
+              </a>
+
+              <a href="#" class="contact-link">
+                WhatsApp ↗
+              </a>
+
+              <a href="#" class="contact-link">
+                Correo electrónico ↗
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <form>
+
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre">
+
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="tu@email.com">
+
+            <label>Mensaje</label>
+            <textarea placeholder="Escribe tu mensaje..."></textarea>
+
+            <button type="button">
+              Enviar mensaje →
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        © 2026 Armelia Linette Nzang MOUNÉ ANDEME
+      </span>
+
+      <span>
+        Administración · Compras · Operaciones
+      </span>
+
     </div>
-</section>
 
-<section>
-    <h2>Formación</h2>
-    <div class="card">
-        <h3>Administración y Dirección de Empresas</h3>
-        <p>Universidad Nacional de Guinea Ecuatorial (UNGE)</p>
-        <p>Último año</p>
-    </div>
-</section>
-
-<section>
-    <h2>Áreas de interés</h2>
-
-    <div class="card">
-        <strong>Administración</strong>
-        <p>Organización, gestión documental y apoyo administrativo.</p>
-    </div>
-
-    <div class="card">
-        <strong>Compras</strong>
-        <p>Organización de pedidos, proveedores y procesos de adquisición.</p>
-    </div>
-
-    <div class="card">
-        <strong>Operaciones</strong>
-        <p>Apoyo a la organización y coordinación de actividades y procesos.</p>
-    </div>
-</section>
-
-<section>
-    <h2>Contacto</h2>
-
-    <div class="card buttons">
-        <a href="#">LinkedIn</a>
-        <a href="#">WhatsApp</a>
-        <a href="#">Correo electrónico</a>
-    </div>
-</section>
-
-<footer>
-    © 2026 Armelia Linette Nzang MOUNÉ ANDEME
-</footer>
+  </footer>
 
 </body>
 </html>
